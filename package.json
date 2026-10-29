@@ -1,0 +1,49 @@
+{
+  "name": "hotel-website-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@types/three": "^0.174.0",
+    "bcryptjs": "^3.0.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.11",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^1.16.0",
+    "next": "15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "three": "^0.174.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.4.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "prisma": "^6.4.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  },
+  "optionalDependencies": {
+    "@next/swc-wasm-nodejs": "15.1.7",
+    "@next/swc-win32-x64-msvc": "^15.1.7"
+  }
+}

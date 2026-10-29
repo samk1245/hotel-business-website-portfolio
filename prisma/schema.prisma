@@ -1,0 +1,119 @@
+// Prisma schema for Hotel Website Portfolio & Lead Management
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id                  String   @id @default(cuid())
+  propertyName        String
+  contactName         String
+  phone               String
+  email               String
+  city                String
+  existingWebsite     String?
+  roomCount           String?
+  selectedPackage     String?
+  selectedAddons      String?  // JSON stringified array of addon keys
+  estimatedBudget     String?
+  preferredLaunchDate String?
+  additionalNotes     String?
+  estimatedTotal      Int?     // from calculator if triggered
+  calculatedTimeframe String?
+  status              String   @default("NEW") // NEW, CONTACTED, IN_DISCUSSION, CONVERTED, ARCHIVED
+  internalNotes       String?
+  ipAddress           String?
+  userAgent           String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("ADMIN")
+  lastLoginAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Project {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  title            String
+  propertyType     String   // "Luxury Heritage", "Mountain Resort", "Boutique Hotel", "Homestay", "Direct Booking"
+  location         String
+  summary          String
+  designObjectives String
+  features         String   // JSON string of feature strings
+  liveUrl          String?
+  demoUrl          String?
+  demoType         String?  // "heritage", "mountain", "boutique"
+  isConcept        Boolean  @default(true)
+  isFeatured       Boolean  @default(true)
+  heroImage        String
+  galleryImages    String   // JSON string array
+  sortOrder        Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([propertyType])
+  @@index([isFeatured])
+}
+
+model PricingPackage {
+  id          String   @id @default(cuid())
+  key         String   @unique // "starter", "signature", "luxury", "direct_booking", "custom_3d"
+  name        String
+  subtitle    String
+  basePrice   Int      // in INR
+  pageLimit   Int
+  description String
+  highlights  String   // JSON string array of features
+  isPopular   Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PricingAddon {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  name        String
+  category    String   // "core", "3d_media", "booking", "marketing"
+  price       Int      // in INR
+  priceType   String   @default("ONE_TIME") // "ONE_TIME" or "RECURRING_MONTHLY"
+  description String
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FaqItem {
+  id          String   @id @default(cuid())
+  question    String
+  answer      String
+  category    String   @default("general") // "pricing", "development", "booking", "maintenance"
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BusinessSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String
+  description String?
+  updatedAt   DateTime @updatedAt
+}
