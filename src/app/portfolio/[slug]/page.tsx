@@ -8,12 +8,11 @@ import { PORTFOLIO_PROJECTS } from "@/data/projects";
 import {
   ArrowLeft,
   MapPin,
-  ExternalLink,
-  Eye,
+  MessageCircle,
   CheckCircle,
   Building,
   Sparkles,
-  ShieldAlert,
+  Lock,
 } from "lucide-react";
 
 interface Props {
@@ -25,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
   const project = PORTFOLIO_PROJECTS.find((p) => p.slug === slug);
   if (!project) return { title: "Project Not Found" };
   return {
-    title: `${project.title} — Hotel Website Case Study | Grandeur Digital`,
+    title: `${project.title} — Hotel Website Case Study | Samir Khan`,
     description: project.summary,
   };
 }
@@ -33,6 +32,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
   const project = PORTFOLIO_PROJECTS.find((p) => p.slug === slug);
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
 
   if (!project) {
     notFound();
@@ -61,7 +61,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               </span>
               {project.isConcept && (
                 <span className="text-xs px-2.5 py-1 rounded bg-charcoal-900 border border-charcoal-700 text-ivory-300">
-                  Concept Demonstration Design
+                  Concept Framework
                 </span>
               )}
             </div>
@@ -89,32 +89,24 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="p-6 rounded-2xl bg-midnight-900 border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 mb-14 shadow-lg">
             <div>
               <span className="font-serif text-lg font-semibold text-ivory-50 block">
-                Experience this property's live digital interface
+                Request a private walkthrough of this framework
               </span>
               <p className="text-xs text-ivory-400 mt-0.5">
-                Full-screen interactive prototype with rooms, menus, and WhatsApp booking.
+                Connect directly with Samir Khan for a screen-share demonstration and tailored estimate.
               </p>
             </div>
 
-            {project.demoUrl ? (
-              <Link
-                href={project.demoUrl}
-                className="w-full sm:w-auto px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-midnight-950 font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center space-x-2 shadow-gold-subtle"
-              >
-                <Eye className="w-4 h-4" />
-                <span>Launch Live Demo</span>
-              </Link>
-            ) : (
-              <a
-                href={project.liveUrl || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-midnight-950 font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center space-x-2 shadow-gold-subtle"
-              >
-                <ExternalLink className="w-4 h-4" />
-                <span>View Live Site</span>
-              </a>
-            )}
+            <a
+              href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+                `Hello Samir Khan! I am interested in seeing a private live walkthrough of "${project.title}".`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs tracking-wider uppercase transition-colors flex items-center justify-center space-x-2 shadow-md"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Request on WhatsApp</span>
+            </a>
           </div>
 
           {/* Project Details Grid */}
@@ -173,12 +165,12 @@ export default async function ProjectDetailPage({ params }: Props) {
                     <span className="font-medium text-ivory-100">{project.location}</span>
                   </div>
                   <div>
-                    <span className="text-ivory-400 block text-[10px] uppercase">Deliverable Format</span>
-                    <span className="font-medium text-ivory-100">Next.js WebGL Responsive</span>
+                    <span className="text-ivory-400 block text-[10px] uppercase">Developer</span>
+                    <span className="font-medium text-ivory-100">Samir Khan (Prayagraj)</span>
                   </div>
                   <div>
-                    <span className="text-ivory-400 block text-[10px] uppercase">Status</span>
-                    <span className="font-medium text-emerald-400">Concept Prototype Online</span>
+                    <span className="text-ivory-400 block text-[10px] uppercase">Access Mode</span>
+                    <span className="font-medium text-gold-400">Private Walkthrough</span>
                   </div>
                 </div>
 

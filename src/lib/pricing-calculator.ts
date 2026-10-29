@@ -4,7 +4,7 @@ import { CalculationResult, CalculatorState } from "./types";
 
 /**
  * Mapping of package keys to addon keys that are already included by default
- * in that package tier to prevent double-charging clients.
+ * in that package tier to prevent duplicate charges.
  */
 export const PACKAGE_INCLUDED_ADDONS: Record<string, string[]> = {
   starter: [
@@ -15,7 +15,9 @@ export const PACKAGE_INCLUDED_ADDONS: Record<string, string[]> = {
     "addon_whatsapp_integration",
     "addon_booking_enquiry_form",
     "addon_advanced_gallery",
-    "addon_local_seo"
+    "addon_local_seo",
+    "addon_qr_menu",
+    "addon_review_booster"
   ],
   luxury: [
     "addon_whatsapp_integration",
@@ -25,7 +27,8 @@ export const PACKAGE_INCLUDED_ADDONS: Record<string, string[]> = {
     "addon_interactive_3d",
     "addon_advanced_animation",
     "addon_virtual_tour",
-    "addon_analytics"
+    "addon_qr_menu",
+    "addon_review_booster"
   ],
   direct_booking: [
     "addon_whatsapp_integration",
@@ -34,7 +37,8 @@ export const PACKAGE_INCLUDED_ADDONS: Record<string, string[]> = {
     "addon_local_seo",
     "addon_booking_engine",
     "addon_payment_gateway",
-    "addon_analytics"
+    "addon_qr_menu",
+    "addon_review_booster"
   ],
   custom_3d: [
     "addon_whatsapp_integration",
@@ -46,16 +50,17 @@ export const PACKAGE_INCLUDED_ADDONS: Record<string, string[]> = {
     "addon_virtual_tour",
     "addon_booking_engine",
     "addon_payment_gateway",
-    "addon_analytics"
+    "addon_qr_menu",
+    "addon_review_booster"
   ]
 };
 
 export const BASE_TIMEFRAMES: Record<string, { min: number; max: number }> = {
-  starter: { min: 5, max: 7 },
-  signature: { min: 10, max: 14 },
-  luxury: { min: 18, max: 24 },
-  direct_booking: { min: 20, max: 28 },
-  custom_3d: { min: 25, max: 35 },
+  starter: { min: 4, max: 6 },
+  signature: { min: 7, max: 10 },
+  luxury: { min: 14, max: 18 },
+  direct_booking: { min: 16, max: 22 },
+  custom_3d: { min: 20, max: 28 },
 };
 
 export function calculateProjectEstimate(state: CalculatorState): CalculationResult {
@@ -71,29 +76,29 @@ export function calculateProjectEstimate(state: CalculatorState): CalculationRes
     type: "base"
   });
 
-  // 2. Extra Pages
+  // 2. Extra Pages (Affordable ₹600 per extra page)
   const extraPages = Math.max(0, state.additionalPages || 0);
-  const additionalPagesCost = extraPages * 1000;
+  const additionalPagesCost = extraPages * 600;
   if (extraPages > 0) {
     breakdown.push({
-      name: `${extraPages} Additional Page${extraPages > 1 ? "s" : ""} (₹1,000/page)`,
+      name: `${extraPages} Additional Page${extraPages > 1 ? "s" : ""} (₹600/page)`,
       cost: additionalPagesCost,
       type: "addon"
     });
   }
 
-  // 3. Extra Room Categories
+  // 3. Extra Room Categories (Affordable ₹900 per suite)
   const extraRooms = Math.max(0, state.additionalRoomCategories || 0);
-  const additionalRoomsCost = extraRooms * 1500;
+  const additionalRoomsCost = extraRooms * 900;
   if (extraRooms > 0) {
     breakdown.push({
-      name: `${extraRooms} Additional Room Category Showcase${extraRooms > 1 ? "s" : ""} (₹1,500/suite)`,
+      name: `${extraRooms} Additional Room Category Showcase${extraRooms > 1 ? "s" : ""} (₹900/suite)`,
       cost: additionalRoomsCost,
       type: "addon"
     });
   }
 
-  // 4. Selected Add-ons (filter out included ones to prevent double-charging)
+  // 4. Selected Add-ons
   let selectedAddonsCost = 0;
   let addedDays = Math.ceil(extraPages / 2) + Math.ceil(extraRooms / 2);
 
@@ -106,9 +111,9 @@ export function calculateProjectEstimate(state: CalculatorState): CalculationRes
     const addon = PRICING_ADDONS.find((a) => a.key === addonKey);
     if (!addon) continue;
 
-    // Check if already covered by package
+    // Check if already covered by foundation package scope
     if (includedKeys.has(addonKey)) {
-      continue; // No charge: Included in package!
+      continue; // Covered by foundation package!
     }
 
     if (addon.priceType === "ONE_TIME") {
@@ -119,10 +124,9 @@ export function calculateProjectEstimate(state: CalculatorState): CalculationRes
         type: "addon"
       });
 
-      // add timeframe estimation
-      if (addon.key === "addon_booking_engine") addedDays += 4;
-      else if (addon.key === "addon_interactive_3d") addedDays += 5;
-      else if (addon.key === "addon_admin_dashboard") addedDays += 3;
+      if (addon.key === "addon_booking_engine") addedDays += 3;
+      else if (addon.key === "addon_interactive_3d") addedDays += 4;
+      else if (addon.key === "addon_admin_dashboard") addedDays += 2;
       else addedDays += 1;
     }
   }
@@ -131,7 +135,7 @@ export function calculateProjectEstimate(state: CalculatorState): CalculationRes
   let monthlyMaintenanceCost = 0;
   if (state.wantsMonthlyMaintenance || activeAddonKeys.has("addon_monthly_maintenance")) {
     const maintenanceAddon = PRICING_ADDONS.find((a) => a.key === "addon_monthly_maintenance");
-    monthlyMaintenanceCost = maintenanceAddon ? maintenanceAddon.price : 1499;
+    monthlyMaintenanceCost = maintenanceAddon ? maintenanceAddon.price : 999;
     breakdown.push({
       name: "Optional Monthly Hotel Care & Hosting (Recurring)",
       cost: monthlyMaintenanceCost,
@@ -141,7 +145,7 @@ export function calculateProjectEstimate(state: CalculatorState): CalculationRes
 
   const oneTimeTotal = selectedPkg.basePrice + additionalPagesCost + additionalRoomsCost + selectedAddonsCost;
 
-  const baseDays = BASE_TIMEFRAMES[selectedPkg.key] || { min: 10, max: 14 };
+  const baseDays = BASE_TIMEFRAMES[selectedPkg.key] || { min: 7, max: 10 };
   const estimatedDeliveryDays = {
     min: baseDays.min + addedDays,
     max: baseDays.max + addedDays + (addedDays > 0 ? 2 : 0)
@@ -171,9 +175,12 @@ export function generateWhatsAppQuoteUrl(options: {
   monthlyMaintenance?: number;
   summaryNotes?: string;
 }): string {
-  const cleanPhone = options.phone.replace(/[^0-9]/g, "");
+  let cleanPhone = options.phone.replace(/[^0-9]/g, "");
+  if (!cleanPhone.startsWith("91") && cleanPhone.length === 10) {
+    cleanPhone = "91" + cleanPhone;
+  }
 
-  let message = "Hello, I am interested in building a professional website for my hotel.";
+  let message = "Hello Samir Khan! I am interested in building a website for my hotel to grow direct bookings.";
 
   if (options.hotelName) {
     message += `\n\nProperty Name: ${options.hotelName}`;
@@ -195,7 +202,7 @@ export function generateWhatsAppQuoteUrl(options: {
     message += `\nNotes: ${options.summaryNotes}`;
   }
 
-  message += "\n\nPlease share your detailed proposal and next steps.";
+  message += "\n\nPlease share your proposal and let's connect on a brief call.";
 
   return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
 }

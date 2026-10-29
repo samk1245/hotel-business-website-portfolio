@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { leadSubmissionSchema, LeadSubmissionInput } from "@/lib/validations";
-import { PRICING_PACKAGES } from "@/data/packages";
 import {
   Send,
   CheckCircle2,
@@ -11,8 +10,6 @@ import {
   MessageCircle,
   Mail,
   Building2,
-  Calendar,
-  IndianRupee,
   ShieldCheck,
   Loader2,
 } from "lucide-react";
@@ -38,9 +35,9 @@ export default function LeadContactForm({
     city: "",
     existingWebsite: "",
     roomCount: "10-25 rooms",
-    selectedPackage: initialPackage || "Signature Hotel (₹17,999)",
+    selectedPackage: initialPackage || "Signature Growth Hotel (₹11,999)",
     selectedAddons: initialSelectedAddons,
-    estimatedBudget: "₹15,000 – ₹35,000",
+    estimatedBudget: "₹10,000 – ₹25,000",
     preferredLaunchDate: "Within 2 to 3 weeks",
     additionalNotes: "",
     estimatedTotal: initialEstimatedTotal,
@@ -52,9 +49,9 @@ export default function LeadContactForm({
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  const phone = process.env.NEXT_PUBLIC_PHONE || "+91 98765 43210";
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "+919876543210";
-  const email = process.env.NEXT_PUBLIC_EMAIL || "concierge@grandeurlabs.com";
+  const phone = process.env.NEXT_PUBLIC_PHONE || "+91 7887087151";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
+  const email = process.env.NEXT_PUBLIC_EMAIL || "samirkhan5287914@gmail.com";
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -73,7 +70,7 @@ export default function LeadContactForm({
     setFieldErrorClean();
     setServerError(null);
 
-    // 1. Client-side Zod validation
+    // Client-side Zod validation
     const validation = leadSubmissionSchema.safeParse(formData);
     if (!validation.success) {
       const formattedErrors: Record<string, string> = {};
@@ -106,15 +103,15 @@ export default function LeadContactForm({
           }
           setFieldErrors(formatted);
         }
-        setServerError(result.error || "Failed to submit enquiry. Please call or WhatsApp us.");
+        setServerError(result.error || "Failed to submit enquiry. Please call or WhatsApp Samir Khan directly.");
         setIsSubmitting(false);
         return;
       }
 
-      setSubmitSuccess(result.message || "Thank you! Your hotel inquiry has been received.");
+      setSubmitSuccess(result.message || "Thank you! Samir Khan has received your inquiry and will contact you directly.");
       setIsSubmitting(false);
     } catch {
-      setServerError("A network error occurred. Please reach out to our concierge on WhatsApp or phone.");
+      setServerError("A network error occurred. Please contact Samir Khan on WhatsApp at 7887087151.");
       setIsSubmitting(false);
     }
   };
@@ -123,8 +120,8 @@ export default function LeadContactForm({
     setFieldErrors({});
   };
 
-  const whatsappDirectUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    `Hello Grandeur Digital! I am enquiring for my hotel "${formData.propertyName || "Hotel Name"}". Please assist.`
+  const whatsappDirectUrl = `https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+    `Hello Samir Khan! I am enquiring for my hotel "${formData.propertyName || "Hotel Name"}". Please share your proposal.`
   )}`;
 
   return (
@@ -134,17 +131,17 @@ export default function LeadContactForm({
         <div className="bg-gradient-to-r from-midnight-950 via-charcoal-900 to-midnight-950 p-6 sm:p-10 border-b border-gold-500/15 text-center relative">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Building2 className="w-3.5 h-3.5" />
-            <span>Dedicated Hospitality Consultation</span>
+            <span>Direct Consultation with Developer</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-ivory-50 tracking-tight">
             Commission Your Hotel Website
           </h2>
           <p className="max-w-2xl mx-auto text-sm sm:text-base text-ivory-300/80 mt-2">
-            Share your property details to receive a tailored digital proposal, feature blueprint, and fixed-timeline quote within 4 business hours.
+            Speak directly with Samir Khan in Prayagraj. Share your property details to receive a customized feature proposal, fixed-timeline plan, and affordable quotation within a few hours.
           </p>
         </div>
 
-        {/* Form Body or Success State */}
+        {/* Form Body */}
         <div className="p-6 sm:p-10">
           {submitSuccess ? (
             <div className="py-12 text-center space-y-6">
@@ -191,9 +188,9 @@ export default function LeadContactForm({
                       city: "",
                       existingWebsite: "",
                       roomCount: "10-25 rooms",
-                      selectedPackage: "Signature Hotel (₹17,999)",
+                      selectedPackage: "Signature Growth Hotel (₹11,999)",
                       selectedAddons: [],
-                      estimatedBudget: "₹15,000 – ₹35,000",
+                      estimatedBudget: "₹10,000 – ₹25,000",
                       preferredLaunchDate: "Within 2 to 3 weeks",
                       additionalNotes: "",
                     });
@@ -224,7 +221,7 @@ export default function LeadContactForm({
                     name="propertyName"
                     value={formData.propertyName}
                     onChange={handleChange}
-                    placeholder="e.g. Royal Heritage Haveli & Spa"
+                    placeholder="e.g. Ganga View Resort & Suites"
                     className={`w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border text-ivory-100 placeholder-charcoal-600 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400 transition-colors ${
                       fieldErrors.propertyName ? "border-red-500" : "border-charcoal-700"
                     }`}
@@ -244,7 +241,7 @@ export default function LeadContactForm({
                     name="contactName"
                     value={formData.contactName}
                     onChange={handleChange}
-                    placeholder="e.g. Vikramaditya Singh (General Manager)"
+                    placeholder="e.g. Ramesh Chandra (Hotel Owner / GM)"
                     className={`w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border text-ivory-100 placeholder-charcoal-600 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400 transition-colors ${
                       fieldErrors.contactName ? "border-red-500" : "border-charcoal-700"
                     }`}
@@ -284,7 +281,7 @@ export default function LeadContactForm({
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="e.g. gm@royalhaveli.com"
+                    placeholder="e.g. info@yourhotel.com"
                     className={`w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border text-ivory-100 placeholder-charcoal-600 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400 transition-colors ${
                       fieldErrors.email ? "border-red-500" : "border-charcoal-700"
                     }`}
@@ -304,7 +301,7 @@ export default function LeadContactForm({
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    placeholder="e.g. Prayagraj / Jaipur / Varanasi / Goa"
+                    placeholder="e.g. Prayagraj / Varanasi / Ayodhya / Lucknow"
                     className={`w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border text-ivory-100 placeholder-charcoal-600 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400 transition-colors ${
                       fieldErrors.city ? "border-red-500" : "border-charcoal-700"
                     }`}
@@ -324,7 +321,7 @@ export default function LeadContactForm({
                     name="existingWebsite"
                     value={formData.existingWebsite || ""}
                     onChange={handleChange}
-                    placeholder="https://yourhotel.com (leave blank if new)"
+                    placeholder="https://yourhotel.com (leave blank if new property)"
                     className={`w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border text-ivory-100 placeholder-charcoal-600 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400 transition-colors ${
                       fieldErrors.existingWebsite ? "border-red-500" : "border-charcoal-700"
                     }`}
@@ -346,7 +343,7 @@ export default function LeadContactForm({
                     className="w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border border-charcoal-700 text-ivory-100 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400"
                   >
                     <option value="1-9 rooms (Homestay / Boutique)">1–9 rooms (Homestay / Boutique)</option>
-                    <option value="10-25 rooms (Independent Hotel)">10–25 rooms (Independent Hotel)</option>
+                    <option value="10-25 rooms (Independent City Hotel)">10–25 rooms (Independent City Hotel)</option>
                     <option value="26-60 rooms (Mid-scale Hotel / Resort)">26–60 rooms (Mid-scale Hotel / Resort)</option>
                     <option value="60+ rooms (Large Luxury Property)">60+ rooms (Large Luxury Property)</option>
                   </select>
@@ -359,15 +356,15 @@ export default function LeadContactForm({
                   </label>
                   <select
                     name="selectedPackage"
-                    value={formData.selectedPackage || "Signature Hotel (₹17,999)"}
+                    value={formData.selectedPackage || "Signature Growth Hotel (₹11,999)"}
                     onChange={handleChange}
                     className="w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border border-charcoal-700 text-ivory-100 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400"
                   >
-                    <option value="Starter Stay (₹7,999)">Starter Stay — ₹7,999 onwards (5 Pages)</option>
-                    <option value="Signature Hotel (₹17,999)">Signature Hotel — ₹17,999 onwards (8 Pages)</option>
-                    <option value="Luxury Experience (₹34,999)">Luxury Experience — ₹34,999 onwards (12 Pages + 3D)</option>
-                    <option value="Direct Booking Pro (₹49,999)">Direct Booking Pro — ₹49,999 onwards (Engine + Payments)</option>
-                    <option value="Custom 3D Experience (₹59,999)">Custom 3D Experience — ₹59,999 onwards (WebGL Spatial)</option>
+                    <option value="Starter Stay (₹4,999)">Starter Stay — ₹4,999 onwards (5 Pages)</option>
+                    <option value="Signature Growth Hotel (₹11,999)">Signature Growth Hotel — ₹11,999 onwards (8 Pages)</option>
+                    <option value="Luxury Experience & 3D (₹19,999)">Luxury Experience & 3D — ₹19,999 onwards (12 Pages + 3D)</option>
+                    <option value="Direct Booking Pro (₹29,999)">Direct Booking Pro — ₹29,999 onwards (Engine + Payments)</option>
+                    <option value="Custom 3D Landmark (₹39,999)">Custom 3D Landmark — ₹39,999 onwards (WebGL Spatial)</option>
                   </select>
                 </div>
 
@@ -378,14 +375,14 @@ export default function LeadContactForm({
                   </label>
                   <select
                     name="estimatedBudget"
-                    value={formData.estimatedBudget || "₹15,000 – ₹35,000"}
+                    value={formData.estimatedBudget || "₹10,000 – ₹25,000"}
                     onChange={handleChange}
                     className="w-full px-4 py-2.5 rounded-lg bg-charcoal-900 border border-charcoal-700 text-ivory-100 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400"
                   >
-                    <option value="₹7,999 – ₹15,000">₹7,999 – ₹15,000</option>
-                    <option value="₹15,000 – ₹35,000">₹15,000 – ₹35,000</option>
-                    <option value="₹35,000 – ₹60,000">₹35,000 – ₹60,000</option>
-                    <option value="₹60,000+ (Comprehensive Direct Booking / 3D)">₹60,000+ (Direct Booking & 3D)</option>
+                    <option value="₹4,999 – ₹10,000">₹4,999 – ₹10,000</option>
+                    <option value="₹10,000 – ₹25,000">₹10,000 – ₹25,000</option>
+                    <option value="₹25,000 – ₹45,000">₹25,000 – ₹45,000</option>
+                    <option value="₹45,000+ (Direct Booking & 3D WebGL)">₹45,000+ (Direct Booking & 3D WebGL)</option>
                   </select>
                 </div>
 
@@ -403,12 +400,12 @@ export default function LeadContactForm({
                     <option value="Immediately (Within 7-10 days)">Immediately (Within 7-10 days)</option>
                     <option value="Within 2 to 3 weeks">Within 2 to 3 weeks</option>
                     <option value="Next 30 to 45 days">Next 30 to 45 days</option>
-                    <option value="Planning ahead (Next season)">Planning ahead (Next season)</option>
+                    <option value="Upcoming Festival / Season (Kumbh / Peak)">Upcoming Festival / Season (Kumbh / Peak)</option>
                   </select>
                 </div>
               </div>
 
-              {/* Additional Requirements / Specific Features */}
+              {/* Additional Requirements */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-ivory-200 mb-1.5">
                   Property Notes, Booking Requirements or Special Features
@@ -418,7 +415,7 @@ export default function LeadContactForm({
                   rows={4}
                   value={formData.additionalNotes || ""}
                   onChange={handleChange}
-                  placeholder="Tell us about your property vision, room types, restaurant, banquet halls, or existing channel manager (e.g. Cloudbeds, Sirvoy, etc.)..."
+                  placeholder="Tell Samir Khan about your property vision, room types, restaurant menu, banquet halls, or existing channel manager..."
                   className="w-full px-4 py-3 rounded-lg bg-charcoal-900 border border-charcoal-700 text-ivory-100 placeholder-charcoal-600 text-sm focus:outline-none focus:ring-1 focus:ring-gold-400"
                 />
               </div>
@@ -427,7 +424,7 @@ export default function LeadContactForm({
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center space-x-2 text-xs text-ivory-400">
                   <ShieldCheck className="w-4 h-4 text-gold-400" />
-                  <span>Zero Spam Guarantee • Direct NDA Confidentiality</span>
+                  <span>Direct Consultation with Developer Samir Khan</span>
                 </div>
 
                 <button
@@ -438,7 +435,7 @@ export default function LeadContactForm({
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Transmitting Consultation Details...</span>
+                      <span>Transmitting Details to Samir Khan...</span>
                     </>
                   ) : (
                     <>
@@ -466,7 +463,7 @@ export default function LeadContactForm({
                   className="flex items-center justify-center space-x-2 p-3 rounded-lg bg-charcoal-900 border border-charcoal-800 hover:border-gold-500/50 text-ivory-200 hover:text-gold-400 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-gold-400" />
-                  <span>Voice Line: {phone}</span>
+                  <span>Call Samir Khan: {phone}</span>
                 </a>
 
                 <a
@@ -474,7 +471,7 @@ export default function LeadContactForm({
                   className="flex items-center justify-center space-x-2 p-3 rounded-lg bg-charcoal-900 border border-charcoal-800 hover:border-gold-500/50 text-ivory-200 hover:text-gold-400 transition-colors"
                 >
                   <Mail className="w-4 h-4 text-gold-400" />
-                  <span>Direct Desk: {email}</span>
+                  <span>Email: {email}</span>
                 </a>
               </div>
             </form>

@@ -4,19 +4,18 @@ import { MessageCircle, Phone, Mail, MapPin, Shield, Lock, ArrowUpRight } from "
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "+919876543210";
-  const phone = process.env.NEXT_PUBLIC_PHONE || "+91 98765 43210";
-  const email = process.env.NEXT_PUBLIC_EMAIL || "concierge@grandeurlabs.com";
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
+  const phone = process.env.NEXT_PUBLIC_PHONE || "+91 7887087151";
+  const email = process.env.NEXT_PUBLIC_EMAIL || "samirkhan5287914@gmail.com";
   const location = process.env.NEXT_PUBLIC_LOCATION || "Prayagraj, Uttar Pradesh, India";
-  const coverage = process.env.NEXT_PUBLIC_SERVICE_AREAS || "Prayagraj, Varanasi, Lucknow, Kanpur, Jaipur & All India";
+  const coverage = process.env.NEXT_PUBLIC_SERVICE_AREAS || "Prayagraj, Varanasi, Lucknow, Kanpur, Ayodhya, Jaipur & All India";
 
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    "Hello Grandeur Digital! I am interested in building a modern website for my hotel."
+  const whatsappUrl = `https://wa.me/91${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+    "Hello Samir Khan! I am interested in building a high-growth website for my hotel."
   )}`;
 
   return (
     <footer className="bg-midnight-950 border-t border-gold-500/15 text-ivory-300 relative overflow-hidden">
-      {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-28 bg-gradient-to-b from-gold-500/5 to-transparent blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -25,30 +24,30 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-3">
               <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 flex items-center justify-center shadow-gold-subtle">
-                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">G</span>
+                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">SK</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-lg tracking-widest text-ivory-50 uppercase font-semibold">
-                  Grandeur<span className="text-gold-400">.</span>
+                  Samir Khan<span className="text-gold-400">.</span>
                 </span>
                 <span className="text-[10px] tracking-wider text-ivory-400 uppercase font-light -mt-1">
-                  Hotel Web Architecture
+                  Hotel Web Developer • Prayagraj
                 </span>
               </div>
             </Link>
 
             <p className="text-sm text-ivory-300/80 leading-relaxed max-w-sm">
-              We design and develop modern hotel websites that showcase your property, highlight your rooms and facilities, build guest confidence, and make it easier for customers to enquire or book directly.
+              I am a specialized hotel web developer from <strong>Prayagraj, Uttar Pradesh</strong>. I build fast, high-converting websites for hotels, resorts, and homestays to cut heavy OTA commissions and drive real business growth.
             </p>
 
             <div className="pt-2 flex flex-col space-y-2 text-xs text-ivory-300/90">
               <div className="flex items-start space-x-2.5">
                 <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                <span><strong>Studio HQ:</strong> {location}</span>
+                <span><strong>Developer Location:</strong> {location}</span>
               </div>
               <div className="flex items-start space-x-2.5">
                 <Shield className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                <span><strong>Coverage:</strong> {coverage}</span>
+                <span><strong>Client Coverage:</strong> {coverage}</span>
               </div>
             </div>
           </div>
@@ -56,32 +55,32 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="font-serif text-sm uppercase tracking-wider text-gold-400 font-semibold">
-              Explore
+              Explore Services
             </h4>
             <ul className="space-y-2 text-xs text-ivory-300">
               <li>
                 <Link href="/services" className="hover:text-gold-400 transition-colors">
-                  All 16 Services
+                  All 16 Hotel Services
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio" className="hover:text-gold-400 transition-colors">
-                  Portfolio Showcase
+                  Work & Concepts
                 </Link>
               </li>
               <li>
                 <Link href="/pricing" className="hover:text-gold-400 transition-colors">
-                  Transparent Packages
+                  Affordable Packages (From ₹4,999)
                 </Link>
               </li>
               <li>
                 <Link href="/calculator" className="hover:text-gold-400 transition-colors">
-                  Interactive Price Calculator
+                  Interactive Price Estimator
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-gold-400 transition-colors">
-                  Our Hospitality Philosophy
+                  About Samir Khan
                 </Link>
               </li>
               <li>
@@ -92,34 +91,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Live Concept Demos */}
+          {/* Feature Highlights */}
           <div className="space-y-3">
             <h4 className="font-serif text-sm uppercase tracking-wider text-gold-400 font-semibold">
-              Interactive Demos
+              Direct Business Growth
             </h4>
             <ul className="space-y-2 text-xs text-ivory-300">
-              <li>
-                <Link href="/demos/heritage-palace" className="hover:text-gold-400 transition-colors flex items-center justify-between">
-                  <span>Heritage Palace Hotel</span>
-                  <ArrowUpRight className="w-3 h-3 text-gold-400/60" />
-                </Link>
+              <li className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                <span>Zero OTA Commissions (Keep 100%)</span>
               </li>
-              <li>
-                <Link href="/demos/azure-mountain-resort" className="hover:text-gold-400 transition-colors flex items-center justify-between">
-                  <span>Alpine Mountain Resort</span>
-                  <ArrowUpRight className="w-3 h-3 text-gold-400/60" />
-                </Link>
+              <li className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                <span>Direct WhatsApp Front-Desk Bookings</span>
               </li>
-              <li>
-                <Link href="/demos/lumina-boutique" className="hover:text-gold-400 transition-colors flex items-center justify-between">
-                  <span>Contemporary Boutique</span>
-                  <ArrowUpRight className="w-3 h-3 text-gold-400/60" />
-                </Link>
+              <li className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                <span>Google Local 3-Pack Maps Ranking</span>
               </li>
-              <li className="pt-2">
-                <span className="inline-block text-[10px] text-ivory-400 italic bg-charcoal-900 px-2 py-1 rounded border border-charcoal-700">
-                  Concept prototypes clearly labelled
-                </span>
+              <li className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                <span>Kumbh & Seasonal Peak Rate Banners</span>
+              </li>
+              <li className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                <span>Digital QR In-Room Dining Menu</span>
               </li>
             </ul>
           </div>
@@ -145,7 +141,7 @@ export default function Footer() {
                 className="flex items-center space-x-2 hover:text-gold-400 transition-colors"
               >
                 <Phone className="w-4 h-4 shrink-0 text-gold-400" />
-                <span>Phone: {phone}</span>
+                <span>Direct Call: {phone}</span>
               </a>
 
               <a
@@ -169,17 +165,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar & Honest Legal Notice */}
+        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-ivory-400/70 space-y-4 md:space-y-0">
           <div>
-            &copy; {currentYear} Grandeur Digital. Built with modern Next.js, Three.js & Tailwind CSS.
+            &copy; {currentYear} Samir Khan. Hotel Web Architecture & Business Growth • Prayagraj, UP.
           </div>
           <div className="flex items-center space-x-6 text-[11px]">
-            <span>Transparent Pricing Disclaimer</span>
+            <span>Affordable Transparent Pricing</span>
             <span>•</span>
             <span>Zero Hidden OTA Commissions</span>
             <span>•</span>
-            <span>Prayagraj & All India</span>
+            <span>Direct WhatsApp: 7887087151</span>
           </div>
         </div>
       </div>

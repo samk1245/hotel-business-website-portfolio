@@ -5,16 +5,18 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import PricingCalculatorWidget from "@/components/PricingCalculatorWidget";
 import { PRICING_PACKAGES } from "@/data/packages";
 import { PRICING_ADDONS } from "@/data/addons";
-import { Check, Sparkles, ShieldAlert, ArrowRight, HelpCircle } from "lucide-react";
+import { Check, Sparkles, ShieldAlert, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Transparent Hotel Website Pricing & Packages | Grandeur Digital",
+  title: "Affordable Hotel Website Packages (From ₹4,999) | Samir Khan",
   description:
-    "Honest, itemized pricing for hotel and resort websites. Starter Stay from ₹7,999, Signature Hotel at ₹17,999, Luxury Experience with 3D at ₹34,999, and Direct Booking Pro at ₹49,999.",
+    "Affordable, transparent pricing for hotel and resort websites by Samir Khan (Prayagraj). Starter Stay from ₹4,999, Signature Growth Hotel at ₹11,999, Luxury Experience at ₹19,999.",
 };
 
 export default function PricingPage() {
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
+
   return (
     <div className="min-h-screen bg-midnight-950 text-ivory-100 flex flex-col justify-between">
       <Navbar />
@@ -25,13 +27,13 @@ export default function PricingPage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Zero Hidden Costs • Direct Deliverables</span>
+              <span>Affordable & High-ROI • Samir Khan (Prayagraj)</span>
             </div>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-ivory-50 tracking-tight">
-              Transparent Hotel Website Packages
+              Affordable Hotel Website Packages
             </h1>
             <p className="text-sm sm:text-base text-ivory-300/80 mt-4 leading-relaxed">
-              Every package is designed to pay for itself by turning OTA-dependent visitors into direct, commission-free bookers. Choose a foundational tier or customize with itemized features.
+              Every package is designed to pay for itself in weeks by turning OTA-dependent visitors into direct, commission-free bookers. Starting affordably at ₹4,999 with zero hidden agency markups.
             </p>
           </div>
 
@@ -48,7 +50,7 @@ export default function PricingPage() {
               >
                 {pkg.isPopular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-400 to-gold-600 text-midnight-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
-                    Most Popular Choice
+                    Top Growth Value
                   </div>
                 )}
 
@@ -108,12 +110,12 @@ export default function PricingPage() {
             ))}
           </div>
 
-          {/* Section: Interactive Calculator Widget */}
+          {/* Interactive Calculator Widget */}
           <div className="mb-20">
             <PricingCalculatorWidget />
           </div>
 
-          {/* Itemized Feature Menu (Section 8) */}
+          {/* Itemized Feature Menu */}
           <div className="bg-midnight-900/70 border border-charcoal-800 rounded-2xl p-6 sm:p-10 mb-16">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="text-xs uppercase tracking-wider text-gold-400 font-semibold block mb-1">
@@ -123,7 +125,7 @@ export default function PricingPage() {
                 Itemized Feature Add-On Rates
               </h2>
               <p className="text-xs sm:text-sm text-ivory-300/80 mt-2">
-                Clear starting prices for individual capabilities, preventing unexpected costs.
+                Affordable rates for individual capabilities, preventing unexpected costs.
               </p>
             </div>
 
@@ -150,7 +152,7 @@ export default function PricingPage() {
             </div>
           </div>
 
-          {/* Transparent Scope Disclaimer (Section 7 & 8) */}
+          {/* Transparent Scope Disclaimer */}
           <div className="p-6 rounded-2xl bg-charcoal-900/80 border border-gold-500/20 max-w-3xl mx-auto flex items-start space-x-4 text-xs text-ivory-300 leading-relaxed">
             <ShieldAlert className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
             <div className="space-y-1.5">
@@ -158,7 +160,7 @@ export default function PricingPage() {
                 Technical Scoping & Third-Party Charges Notice
               </span>
               <p>
-                A genuine live booking engine, automated room inventory synchronization, channel manager APIs (e.g. Cloudbeds, Sirvoy, eZee), and payment gateway transactions (e.g. Razorpay or Stripe standard processing fees) require separate software licensing directly with those providers. We handle complete UI/UX styling, integration, and security testing.
+                A genuine live booking engine, automated room inventory synchronization, channel manager APIs, and payment gateway transactions (e.g. Razorpay or PhonePe standard processing fees) require separate software licensing directly with those providers. Samir Khan handles complete UI/UX styling, integration, and security testing.
               </p>
             </div>
           </div>

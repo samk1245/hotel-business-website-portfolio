@@ -17,8 +17,8 @@ import {
   Sparkles,
   ArrowRight,
   MessageCircle,
-  HelpCircle,
   AlertCircle,
+  Check,
 } from "lucide-react";
 
 interface Props {
@@ -83,7 +83,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
     setWantsMonthlyMaintenance(false);
   };
 
-  const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP || "+919876543210";
+  const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
   const whatsappUrl = generateWhatsAppQuoteUrl({
     phone: whatsappPhone,
     hotelName: `${hotelType} in India`,
@@ -125,7 +125,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
             Calculate Your Website Investment
           </h3>
           <p className="text-xs sm:text-sm text-ivory-300/70 mt-1">
-            Transparent pricing without hidden studio markups or duplicate feature charges.
+            Affordable, transparent pricing tailored to Indian hoteliers. Zero hidden agency markups.
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
               <label className="text-xs font-semibold uppercase tracking-wider text-ivory-300">
                 2. Choose Foundation Package
               </label>
-              <span className="text-[11px] text-ivory-400">Includes core pages & responsive UX</span>
+              <span className="text-[11px] text-ivory-400">Includes core pages & direct bookings</span>
             </div>
 
             <div className="space-y-2">
@@ -207,7 +207,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
                           <span className="text-[11px] text-ivory-400">({pkg.pageLimit} pages)</span>
                           {pkg.isPopular && (
                             <span className="text-[10px] bg-gold-500/20 text-gold-400 px-2 py-0.5 rounded-full border border-gold-500/30">
-                              Popular
+                              Top Growth Pick
                             </span>
                           )}
                         </div>
@@ -233,9 +233,9 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
             <div className="p-3.5 bg-charcoal-900/60 rounded-xl border border-charcoal-800">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-semibold text-ivory-200">Additional Pages</span>
-                <span className="text-xs text-gold-400">₹1,000 / page</span>
+                <span className="text-xs text-gold-400">₹600 / page</span>
               </div>
-              <p className="text-[11px] text-ivory-400 mb-3">Beyond package page limit</p>
+              <p className="text-[11px] text-ivory-400 mb-3">Beyond foundation page limit</p>
               <div className="flex items-center space-x-3">
                 <button
                   type="button"
@@ -260,7 +260,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
             <div className="p-3.5 bg-charcoal-900/60 rounded-xl border border-charcoal-800">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-semibold text-ivory-200">Extra Room Showcases</span>
-                <span className="text-xs text-gold-400">₹1,500 / room</span>
+                <span className="text-xs text-gold-400">₹900 / suite</span>
               </div>
               <p className="text-[11px] text-ivory-400 mb-3">Dedicated suite layout & gallery</p>
               <div className="flex items-center space-x-3">
@@ -291,7 +291,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
               <label className="text-xs font-semibold uppercase tracking-wider text-ivory-300">
                 4. Select Optional Feature Add-ons
               </label>
-              <span className="text-[11px] text-emerald-400">Included items marked free</span>
+              <span className="text-[11px] text-gold-400">Transparent itemized rates</span>
             </div>
 
             <div className="space-y-2">
@@ -309,7 +309,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
                     }}
                     className={`p-3 rounded-xl border flex items-center justify-between transition-all ${
                       isIncluded
-                        ? "bg-emerald-950/20 border-emerald-500/30 cursor-default opacity-85"
+                        ? "bg-charcoal-900/60 border-gold-500/30 cursor-default opacity-90"
                         : isSelected
                         ? "bg-gold-500/10 border-gold-500 cursor-pointer"
                         : "bg-charcoal-900/30 border-charcoal-800/80 hover:border-charcoal-700 cursor-pointer"
@@ -327,7 +327,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
                         <div className="text-xs font-semibold text-ivory-100 flex items-center gap-1.5">
                           <span>{addon.name}</span>
                           {isIncluded && (
-                            <span className="text-[9px] bg-emerald-900/60 text-emerald-300 px-1.5 py-0.2 rounded font-normal">
+                            <span className="text-[9px] bg-charcoal-800 text-gold-300 px-1.5 py-0.2 rounded font-normal border border-gold-500/30">
                               Included in {estimate.packageName}
                             </span>
                           )}
@@ -338,7 +338,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
 
                     <div className="text-right shrink-0">
                       {isIncluded ? (
-                        <span className="text-xs font-semibold text-emerald-400">FREE</span>
+                        <span className="text-xs font-medium text-gold-300">Included</span>
                       ) : (
                         <span className="text-xs font-semibold text-gold-400">
                           +₹{addon.price.toLocaleString("en-IN")}
@@ -377,7 +377,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
               </div>
             </div>
             <div className="text-right shrink-0 pl-2">
-              <span className="text-xs font-semibold text-gold-400">+₹1,499</span>
+              <span className="text-xs font-semibold text-gold-400">+₹999</span>
               <span className="text-[10px] text-ivory-400 block">/month</span>
             </div>
           </div>
@@ -434,11 +434,11 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
               )}
             </div>
 
-            {/* Legal / Transparent Scope Disclaimer */}
+            {/* Transparent Scope Disclaimer */}
             <div className="pt-2 flex items-start space-x-2 text-[11px] text-ivory-400/80 leading-relaxed border-t border-charcoal-800">
               <AlertCircle className="w-3.5 h-3.5 text-gold-400 shrink-0 mt-0.5" />
               <span>
-                Illustrative starting estimate based on stated specifications. Live booking engine and third-party gateway licensing fees are billed directly by their respective providers.
+                Affordable starting estimate directly by developer Samir Khan in Prayagraj. Live booking engine and gateway provider subscriptions are paid directly to their respective providers.
               </span>
             </div>
 
@@ -449,7 +449,7 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
                 onClick={handleRequestQuote}
                 className="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:to-gold-500 text-midnight-950 font-semibold text-xs tracking-wider uppercase transition-all shadow-gold-subtle flex items-center justify-center space-x-2"
               >
-                <span>Request My Custom Quote</span>
+                <span>Request Custom Quote & Proposal</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -460,13 +460,13 @@ export default function PricingCalculatorWidget({ onApplyToLeadForm }: Props) {
                 className="w-full py-2.5 px-4 rounded-lg border border-emerald-500/40 bg-emerald-950/30 hover:bg-emerald-950/50 text-emerald-400 font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center space-x-2"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Send Estimate via WhatsApp</span>
+                <span>Send Estimate to Samir Khan (WhatsApp)</span>
               </a>
             </div>
 
             {showAppliedToast && (
               <div className="p-2.5 rounded bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-xs text-center animate-fadeIn">
-                ✓ Calculation applied! Please fill the contact details below to finalize your proposal.
+                ✓ Calculation applied! Fill in your property details below to receive your customized proposal.
               </div>
             )}
           </div>

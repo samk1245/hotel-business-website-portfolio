@@ -3,9 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowRight, MessageCircle, ChevronDown, Sparkles, Building, ShieldCheck, MapPin } from "lucide-react";
+import { ArrowRight, MessageCircle, ChevronDown, Sparkles, MapPin, TrendingUp } from "lucide-react";
 
-// Dynamically import 3D Canvas with ssr: false for optimal performance and graceful client-side rendering
 const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
   ssr: false,
   loading: () => (
@@ -16,14 +15,14 @@ const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
 });
 
 export default function HeroSection() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "+919876543210";
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    "Hello Grandeur Digital! I am interested in building an immersive website for my hotel. Please share your portfolio."
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
+  const whatsappUrl = `https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+    "Hello Samir Khan! I am interested in building a high-growth website for my hotel. Please share your packages."
   )}`;
 
   return (
     <section className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-midnight-950">
-      {/* 3D Scene Layer (Absolute Background & Interactive Middle Ground) */}
+      {/* 3D Scene Layer */}
       <div className="absolute inset-0 w-full h-full z-0 opacity-80 pointer-events-auto">
         <Hero3DCanvas />
       </div>
@@ -34,13 +33,13 @@ export default function HeroSection() {
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pointer-events-none">
-        {/* Subtle pill tag */}
+        {/* Developer Location Pill */}
         <div className="pointer-events-auto inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-midnight-900/90 border border-gold-500/40 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-6 shadow-gold-subtle backdrop-blur-md">
           <Sparkles className="w-3.5 h-3.5 text-gold-400 animate-pulse" />
-          <span>Award-Winning Hospitality Digital Architecture</span>
+          <span>Samir Khan • Hotel Web Developer • Prayagraj, UP</span>
         </div>
 
-        {/* Animated Headline */}
+        {/* Headline */}
         <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-normal text-ivory-50 tracking-tight max-w-4xl leading-[1.1] sm:leading-[1.12]">
           Your Hotel Deserves <br className="hidden sm:inline" />
           <span className="italic font-light text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600">
@@ -50,13 +49,13 @@ export default function HeroSection() {
 
         {/* Supporting Copy */}
         <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-ivory-300/85 font-light leading-relaxed">
-          We build immersive hotel websites that turn online visitors into real guest enquiries.
+          I build high-converting hotel websites that turn online visitors into direct, commission-free guest bookings to drive real business growth for your property.
         </p>
 
         {/* Coverage Subtitle */}
         <div className="mt-3 flex items-center space-x-2 text-xs text-ivory-400/90 font-medium">
           <MapPin className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-          <span>Prayagraj • Uttar Pradesh • Jaipur • Serving Hoteliers Nationwide</span>
+          <span>Based in Prayagraj • Serving Hotels Across Uttar Pradesh, Jaipur & Pan-India</span>
         </div>
 
         {/* CTAs */}
@@ -75,7 +74,7 @@ export default function HeroSection() {
             href="/portfolio"
             className="w-full sm:w-auto px-8 py-4 rounded-lg border border-charcoal-700 hover:border-gold-500/60 bg-midnight-900/60 hover:bg-midnight-900 text-ivory-100 font-semibold text-xs tracking-wider uppercase transition-all backdrop-blur-md"
           >
-            Explore Our Work
+            Explore Work & Concepts
           </Link>
 
           {/* WhatsApp Direct Action */}
@@ -86,7 +85,7 @@ export default function HeroSection() {
             className="w-full sm:w-auto px-5 py-4 rounded-lg border border-emerald-500/40 bg-emerald-950/40 hover:bg-emerald-950/70 text-emerald-300 font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center space-x-2 backdrop-blur-md"
           >
             <MessageCircle className="w-4 h-4 text-emerald-400" />
-            <span>Chat on WhatsApp</span>
+            <span>WhatsApp: 7887087151</span>
           </a>
         </div>
 
@@ -98,15 +97,15 @@ export default function HeroSection() {
           </div>
           <div className="space-y-1">
             <span className="font-serif text-xl sm:text-2xl font-bold text-gold-400">&lt; 1.0s</span>
-            <p className="text-[11px] text-ivory-400 leading-tight">Core Web Vitals mobile load speed</p>
+            <p className="text-[11px] text-ivory-400 leading-tight">Sub-second mobile speed optimization</p>
           </div>
           <div className="space-y-1">
             <span className="font-serif text-xl sm:text-2xl font-bold text-gold-400">100%</span>
             <p className="text-[11px] text-ivory-400 leading-tight">Asset & domain ownership retained by you</p>
           </div>
           <div className="space-y-1">
-            <span className="font-serif text-xl sm:text-2xl font-bold text-gold-400">₹7,999</span>
-            <p className="text-[11px] text-ivory-400 leading-tight">Transparent starter package entry</p>
+            <span className="font-serif text-xl sm:text-2xl font-bold text-gold-400">₹4,999</span>
+            <p className="text-[11px] text-ivory-400 leading-tight">Affordable starter package foundation</p>
           </div>
         </div>
 
@@ -117,7 +116,7 @@ export default function HeroSection() {
             className="text-ivory-400 hover:text-gold-400 transition-colors flex flex-col items-center space-y-1 text-[11px] uppercase tracking-widest font-light"
             aria-label="Scroll to services"
           >
-            <span>Discover Services</span>
+            <span>Discover Hotel Growth Services</span>
             <ChevronDown className="w-4 h-4 animate-bounce" />
           </a>
         </div>

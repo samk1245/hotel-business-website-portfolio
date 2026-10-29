@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { MessageCircle, Menu, X, ArrowUpRight, ShieldCheck, Phone } from "lucide-react";
+import { MessageCircle, Menu, X, ArrowUpRight, Phone } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,9 +20,9 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "+919876543210";
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    "Hello Grandeur Digital! I am interested in building a modern website for my hotel. Please share your packages."
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
+  const whatsappUrl = `https://wa.me/91${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+    "Hello Samir Khan! I am looking for a website for my hotel to grow direct bookings. Please share your packages."
   )}`;
 
   return (
@@ -39,14 +39,14 @@ export default function Navbar() {
             {/* Brand Logo */}
             <Link href="/" className="group flex items-center space-x-3 text-left">
               <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 flex items-center justify-center shadow-gold-subtle transform group-hover:scale-105 transition-transform duration-300">
-                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">G</span>
+                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">SK</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-lg tracking-widest text-ivory-50 uppercase font-semibold">
-                  Grandeur<span className="text-gold-400">.</span>
+                  Samir Khan<span className="text-gold-400">.</span>
                 </span>
                 <span className="text-[10px] tracking-wider text-ivory-400 uppercase font-light -mt-1">
-                  Hotel Web Architecture
+                  Hotel Web Developer • Prayagraj
                 </span>
               </div>
             </Link>
@@ -57,23 +57,19 @@ export default function Navbar() {
                 Services
               </Link>
               <Link href="/portfolio" className="hover:text-gold-400 transition-colors py-1">
-                Portfolio
-              </Link>
-              <Link href="/demos" className="hover:text-gold-400 transition-colors py-1 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                Live Demos
+                Work & Concepts
               </Link>
               <Link href="/pricing" className="hover:text-gold-400 transition-colors py-1">
-                Pricing
+                Pricing (From ₹4,999)
               </Link>
               <Link href="/calculator" className="hover:text-gold-400 transition-colors py-1">
-                Price Calculator
+                Price Estimator
               </Link>
               <Link href="/about" className="hover:text-gold-400 transition-colors py-1">
-                About & Trust
+                About Me
               </Link>
               <Link href="/contact" className="hover:text-gold-400 transition-colors py-1">
-                Contact
+                Contact & Call
               </Link>
             </nav>
 
@@ -84,10 +80,10 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-xs font-semibold px-3 py-2 rounded-full border border-emerald-500/40 text-emerald-400 bg-emerald-950/20 hover:bg-emerald-950/40 transition-colors"
-                title="Chat with Hospitality Concierge on WhatsApp"
+                title="Chat with Samir Khan on WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp</span>
+                <span>WhatsApp: 7887087151</span>
               </a>
 
               <Link
@@ -138,45 +134,35 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800"
               >
-                Hotel Portfolio & Case Studies
-              </Link>
-              <Link
-                href="/demos"
-                onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800 flex items-center justify-between"
-              >
-                <span>Live Interactive Demos</span>
-                <span className="text-xs bg-emerald-900/60 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full">
-                  3 Stays
-                </span>
+                Work & Concepts
               </Link>
               <Link
                 href="/pricing"
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800"
               >
-                Transparent Pricing Packages
+                Affordable Pricing (From ₹4,999)
               </Link>
               <Link
                 href="/calculator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800"
               >
-                Interactive Price Calculator
+                Interactive Price Estimator
               </Link>
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800"
               >
-                About & Trust Philosophy
+                About Samir Khan (Prayagraj)
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800"
               >
-                Contact & Location (Prayagraj)
+                Contact & Call Desk
               </Link>
 
               <div className="pt-4 flex flex-col space-y-3">
@@ -194,7 +180,7 @@ export default function Navbar() {
                   className="w-full text-center py-3 text-xs font-semibold uppercase tracking-wider text-emerald-400 border border-emerald-500/40 rounded bg-emerald-950/20 flex items-center justify-center space-x-2"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Chat on WhatsApp</span>
+                  <span>WhatsApp: 7887087151</span>
                 </a>
               </div>
             </div>

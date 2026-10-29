@@ -4,18 +4,19 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { PORTFOLIO_PROJECTS } from "@/data/projects";
 import {
-  ExternalLink,
   MapPin,
   Sparkles,
   ArrowRight,
   ShieldAlert,
   Layers,
-  Eye,
-  CheckCircle2,
+  MessageCircle,
+  FileText,
+  Lock,
 } from "lucide-react";
 
 export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState<string>("ALL");
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
 
   const filterTabs = [
     { id: "ALL", label: "All Projects" },
@@ -36,13 +37,13 @@ export default function PortfolioSection() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Layers className="w-3.5 h-3.5" />
-            <span>Interactive Hotel Showcase</span>
+            <span>Curated Portfolio & Concept Frameworks</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-ivory-50 tracking-tight">
-            Cinematic Hotel Websites Built to Convert
+            High-Converting Hotel Websites Built for Growth
           </h2>
           <p className="text-sm sm:text-base text-ivory-300/80 mt-4 leading-relaxed">
-            Explore live interactive prototypes crafted for distinct hospitality genres. We clearly distinguish concept demonstration flagships from verified client work.
+            I build bespoke digital flagships tailored to distinct hospitality property types. Contact me directly for a private live walkthrough and tailored architecture consultation.
           </p>
 
           {/* Filter Pills */}
@@ -84,7 +85,7 @@ export default function PortfolioSection() {
                   {/* Concept Badge */}
                   {project.isConcept && (
                     <div className="absolute top-3 left-3 bg-midnight-950/90 border border-gold-500/40 text-gold-400 text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-md shadow-md backdrop-blur-md">
-                      Interactive Concept Demo
+                      Concept Framework
                     </div>
                   )}
 
@@ -110,7 +111,7 @@ export default function PortfolioSection() {
 
                   <div className="p-3 rounded-lg bg-charcoal-900/70 border border-charcoal-800 text-[11px] text-ivory-300 space-y-1 mb-4">
                     <span className="font-semibold text-gold-400 uppercase tracking-wider block text-[10px]">
-                      Design Objectives:
+                      Business Growth Objectives:
                     </span>
                     <p className="line-clamp-2">{project.designObjectives}</p>
                   </div>
@@ -118,7 +119,7 @@ export default function PortfolioSection() {
                   {/* Key Features Chips */}
                   <div className="space-y-1.5 mb-2">
                     <span className="font-semibold text-ivory-400 uppercase tracking-wider block text-[10px]">
-                      Implemented Features:
+                      Implemented Capabilities:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {project.features.slice(0, 3).map((f, i) => (
@@ -139,27 +140,19 @@ export default function PortfolioSection() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons: Request Private Walkthrough via WhatsApp */}
               <div className="p-6 pt-0 border-t border-charcoal-800/80 flex items-center gap-3 mt-4">
-                {project.demoUrl ? (
-                  <Link
-                    href={project.demoUrl}
-                    className="flex-1 py-2.5 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-midnight-950 font-semibold text-xs tracking-wider uppercase text-center transition-colors flex items-center justify-center space-x-1.5 shadow-gold-subtle"
-                  >
-                    <Eye className="w-3.5 h-3.5" />
-                    <span>View Live Demo</span>
-                  </Link>
-                ) : (
-                  <a
-                    href={project.liveUrl || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 py-2.5 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-midnight-950 font-semibold text-xs tracking-wider uppercase text-center transition-colors flex items-center justify-center space-x-1.5 shadow-gold-subtle"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span>View Live Project</span>
-                  </a>
-                )}
+                <a
+                  href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+                    `Hello Samir Khan! I am interested in seeing a private live walkthrough/presentation of "${project.title}" (${project.propertyType}).`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-2.5 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-midnight-950 font-semibold text-xs tracking-wider uppercase text-center transition-colors flex items-center justify-center space-x-1.5 shadow-gold-subtle"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Request Walkthrough</span>
+                </a>
 
                 <Link
                   href={`/portfolio/${project.slug}`}
@@ -173,12 +166,25 @@ export default function PortfolioSection() {
           ))}
         </div>
 
-        {/* Transparent Honesty Note */}
-        <div className="mt-12 p-4 rounded-xl bg-charcoal-900/80 border border-gold-500/20 max-w-2xl mx-auto flex items-start space-x-3 text-xs text-ivory-300">
-          <ShieldAlert className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-          <p>
-            <strong>Hospitality Integrity Guarantee:</strong> We hold ourselves to strict industry standards. All demonstration projects above are fully functional, interactive studio concept flagships built to exhibit architectural layouts, speed, and booking flows. We never misrepresent concept work as paid client results.
-          </p>
+        {/* Private Walkthrough Banner */}
+        <div className="mt-12 p-5 rounded-xl bg-charcoal-900/90 border border-gold-500/30 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory-300">
+          <div className="flex items-start space-x-3">
+            <Lock className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
+            <p>
+              <strong>Private Walkthrough Policy:</strong> To protect custom design architecture and client exclusivity, live demo access is provided on a 1-on-1 scheduled screen share or private test link. Reach out to Samir Khan on WhatsApp at <strong>7887087151</strong>.
+            </p>
+          </div>
+          <a
+            href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+              "Hello Samir Khan! I would like to schedule a 15-minute live demo walkthrough for my hotel property."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs whitespace-nowrap shrink-0 flex items-center space-x-1.5"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>Chat on WhatsApp</span>
+          </a>
         </div>
       </div>
     </section>
