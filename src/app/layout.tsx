@@ -17,14 +17,14 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://github.com/samk1245/hotel-business-website-portfolio"),
   title: {
-    default: "Samir Khan — Hotel Web Developer in Prayagraj | Direct Bookings & Business Growth",
-    template: "%s | Samir Khan",
+    default: "StayCraft — Luxury Hotel Website Architecture & 3D Web Design",
+    template: "%s | StayCraft",
   },
   description:
-    "I am Samir Khan, a hotel website developer from Prayagraj, UP. I build modern websites for hotels, resorts, and homestays to cut heavy OTA commissions and drive business growth.",
+    "StayCraft builds modern 3D websites for hotels, resorts, and homestays to cut heavy OTA commissions and drive direct business growth. Founded by Samir Khan in Prayagraj, UP.",
   keywords: [
-    "Samir Khan web developer",
-    "hotel website developer in Prayagraj",
+    "StayCraft hotel websites",
+    "hotel website developer Prayagraj",
     "hotel website design Allahabad",
     "hotel website development Uttar Pradesh",
     "resort website developer India",
@@ -32,23 +32,23 @@ export const metadata: Metadata = {
     "homestay website design",
     "affordable hotel website developer"
   ],
-  authors: [{ name: "Samir Khan", url: "https://github.com/samk1245/hotel-business-website-portfolio" }],
-  creator: "Samir Khan",
-  publisher: "Samir Khan",
+  authors: [{ name: "StayCraft", url: "https://github.com/samk1245/hotel-business-website-portfolio" }],
+  creator: "StayCraft",
+  publisher: "StayCraft",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://github.com/samk1245/hotel-business-website-portfolio",
-    title: "Samir Khan — Hotel Website Developer (Prayagraj, UP)",
+    title: "StayCraft — Luxury Hotel Web Architecture & 3D Web Design",
     description:
-      "Modern, high-converting hotel websites starting from ₹4,999. Direct WhatsApp bookings, Google Maps 3-Pack SEO, and commission-cutting direct reservation engines.",
-    siteName: "Samir Khan — Hotel Web Architecture",
+      "Modern, high-converting 3D hotel websites starting from ₹4,999. Direct WhatsApp bookings, Google Maps 3-Pack SEO, and commission-cutting direct reservation engines.",
+    siteName: "StayCraft",
     images: [
       {
         url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Samir Khan - Hotel Web Architecture Prayagraj",
+        alt: "StayCraft — Hotel Web Architecture",
       },
     ],
   },
@@ -61,9 +61,13 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Samir Khan",
-    jobTitle: "Hotel Website Developer & Business Growth Specialist",
+    "@type": "ProfessionalService",
+    name: "StayCraft — Hotel Web Architecture",
+    description: "Modern 3D hotel website design, direct booking engines, and commission-free growth architecture.",
+    founder: {
+      "@type": "Person",
+      name: "Samir Khan",
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Prayagraj",

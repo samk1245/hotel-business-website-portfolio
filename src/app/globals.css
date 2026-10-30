@@ -10,6 +10,9 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -19,9 +22,26 @@ body {
   overflow-x: hidden;
 }
 
+/* Hardware accelerated smooth performance layer */
+.gpu-smooth {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 3D Perspective Card Tilt Micro-interactions */
+.card-3d-hover {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d-hover:hover {
+  transform: translateY(-4px) scale(1.01) perspective(800px) rotateX(1.5deg) rotateY(-1deg);
+}
+
 /* Custom Luxury Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -50,5 +70,5 @@ body {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

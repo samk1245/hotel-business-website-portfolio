@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { MessageCircle, Menu, X, ArrowUpRight, Phone } from "lucide-react";
+import { MessageCircle, Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,37 +16,37 @@ export default function Navbar() {
         setIsScrolled(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
   const whatsappUrl = `https://wa.me/91${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    "Hello Samir Khan! I am looking for a website for my hotel to grow direct bookings. Please share your packages."
+    "Hello StayCraft! I am looking for a website for my hotel to grow direct bookings. Please share your packages."
   )}`;
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform ${
           isScrolled
-            ? "bg-midnight-950/90 backdrop-blur-md border-b border-gold-500/15 py-3.5 shadow-luxury-dark"
-            : "bg-transparent py-5"
+            ? "bg-midnight-950/92 backdrop-blur-md border-b border-gold-500/15 py-3 shadow-luxury-dark"
+            : "bg-transparent py-4 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
+            {/* Website Brand Logo: StayCraft */}
             <Link href="/" className="group flex items-center space-x-3 text-left">
               <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 flex items-center justify-center shadow-gold-subtle transform group-hover:scale-105 transition-transform duration-300">
-                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">SK</span>
+                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">SC</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-lg tracking-widest text-ivory-50 uppercase font-semibold">
-                  Samir Khan<span className="text-gold-400">.</span>
+                <span className="font-serif text-lg sm:text-xl tracking-widest text-ivory-50 uppercase font-semibold">
+                  StayCraft<span className="text-gold-400">.</span>
                 </span>
                 <span className="text-[10px] tracking-wider text-ivory-400 uppercase font-light -mt-1">
-                  Hotel Web Developer • Prayagraj
+                  Hotel Web Architecture
                 </span>
               </div>
             </Link>
@@ -66,7 +66,7 @@ export default function Navbar() {
                 Price Estimator
               </Link>
               <Link href="/about" className="hover:text-gold-400 transition-colors py-1">
-                About Me
+                About Us
               </Link>
               <Link href="/contact" className="hover:text-gold-400 transition-colors py-1">
                 Contact & Call
@@ -80,7 +80,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-xs font-semibold px-3 py-2 rounded-full border border-emerald-500/40 text-emerald-400 bg-emerald-950/20 hover:bg-emerald-950/40 transition-colors"
-                title="Chat with Samir Khan on WhatsApp"
+                title="Chat with StayCraft on WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>WhatsApp: 7887087151</span>
@@ -155,7 +155,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="hover:text-gold-400 transition-colors py-1.5 border-b border-charcoal-800"
               >
-                About Samir Khan (Prayagraj)
+                About StayCraft
               </Link>
               <Link
                 href="/contact"

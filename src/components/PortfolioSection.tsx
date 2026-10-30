@@ -69,7 +69,7 @@ export default function PortfolioSection() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-midnight-950/80 border border-charcoal-800 hover:border-gold-500/40 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-luxury-dark"
+              className="card-3d-hover group bg-midnight-950/80 border border-charcoal-800 hover:border-gold-500/40 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-luxury-dark"
             >
               <div>
                 {/* Hero Image Container */}

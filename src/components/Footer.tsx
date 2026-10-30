@@ -23,15 +23,15 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-sm bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 flex items-center justify-center shadow-gold-subtle">
-                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">SK</span>
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 flex items-center justify-center shadow-gold-subtle">
+                <span className="font-serif font-black text-midnight-950 text-xl tracking-tighter">SC</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-lg tracking-widest text-ivory-50 uppercase font-semibold">
-                  Samir Khan<span className="text-gold-400">.</span>
+                  StayCraft<span className="text-gold-400">.</span>
                 </span>
                 <span className="text-[10px] tracking-wider text-ivory-400 uppercase font-light -mt-1">
-                  Hotel Web Developer • Prayagraj
+                  By Samir Khan • Prayagraj, UP
                 </span>
               </div>
             </Link>
@@ -168,7 +168,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-ivory-400/70 space-y-4 md:space-y-0">
           <div>
-            &copy; {currentYear} Samir Khan. Hotel Web Architecture & Business Growth • Prayagraj, UP.
+            &copy; {currentYear} StayCraft by Samir Khan. Hotel Web Architecture & Business Growth • Prayagraj, UP.
           </div>
           <div className="flex items-center space-x-6 text-[11px]">
             <span>Affordable Transparent Pricing</span>

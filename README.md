@@ -1,12 +1,15 @@
-# Samir Khan — Hotel Web Developer & Business Growth Specialist
+# StayCraft — Hotel Web Architecture & Business Growth
 
-> "I build modern websites for hotels, resorts, and homestays to cut heavy OTA commissions and drive real business growth."
+> "We turn hotels into digital experiences. High-converting 3D websites for hotels, resorts, and luxury stays that cut OTA commissions and drive real direct bookings."
+> 
+> **Founded & Engineered by Samir Khan • Prayagraj, Uttar Pradesh, India**
 
 ---
 
-## 1. Developer Profile & Location
+## 1. Brand Profile & Contact Information
 
-- **Developer:** Samir Khan
+- **Brand:** StayCraft
+- **Founder / Lead Engineer:** Samir Khan
 - **Role:** Hotel Web Developer & Hospitality Growth Architect
 - **Location:** Prayagraj (Allahabad), Uttar Pradesh, India
 - **Service Coverage:** Prayagraj, Varanasi, Lucknow, Kanpur, Ayodhya, Jaipur, and clients across India.
@@ -70,12 +73,13 @@ Hoteliers can contact **Samir Khan** on WhatsApp at **7887087151** to schedule a
 
 ---
 
-## 5. Technology Stack
+## 5. Technology Stack & 3D Engineering
 
 - **Framework:** Next.js 15 (App Router, Server Components & Route Handlers)
 - **Language:** TypeScript 5.7 (100% strict type safety)
-- **Styling:** Tailwind CSS with custom luxury tokens (`midnight`, `charcoal`, `gold`, `ivory`)
-- **3D Graphics:** Three.js procedural architectural pavilion with ambient lighting & mouse parallax
+- **Styling:** Tailwind CSS with custom luxury tokens (`midnight`, `charcoal`, `gold`, `ivory`) and hardware-accelerated 3D hover tilt
+- **3D Graphics (60 FPS Optimized):** Three.js procedural architectural pavilion with StayCraft orbital rings, reflective infinity pool, floating octahedron gold particle field, and IntersectionObserver offscreen sleep mode to eliminate scroll lag
+- **Interactive Growth Tools:** Real-time OTA Commission vs Direct Booking Savings Calculator with break-even period estimator and direct WhatsApp quote dispatcher
 - **Database & ORM:** Prisma ORM 6 with SQLite locally (seamlessly PostgreSQL-compatible)
 - **Testing:** Vitest automated test suite (15/15 tests passing)
 - **Authentication:** Private studio dashboard with JWT sessions and bcrypt password hashing

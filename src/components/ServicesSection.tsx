@@ -112,7 +112,7 @@ export default function ServicesSection() {
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="group bg-midnight-900/60 border border-charcoal-800 hover:border-gold-500/40 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-luxury-dark backdrop-blur-sm"
+              className="card-3d-hover group bg-midnight-900/60 border border-charcoal-800 hover:border-gold-500/40 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-luxury-dark backdrop-blur-sm"
             >
               <div>
                 {/* Card Header */}

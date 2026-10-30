@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowRight, MessageCircle, ChevronDown, Sparkles, MapPin, TrendingUp } from "lucide-react";
+import { ArrowRight, MessageCircle, ChevronDown, Sparkles, MapPin, TrendingUp, ShieldCheck } from "lucide-react";
 
 const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
   ssr: false,
@@ -17,7 +17,7 @@ const Hero3DCanvas = dynamic(() => import("./Hero3DCanvas"), {
 export default function HeroSection() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP || "7887087151";
   const whatsappUrl = `https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-    "Hello Samir Khan! I am interested in building a high-growth website for my hotel. Please share your packages."
+    "Hello StayCraft! I am interested in building a high-growth website for my hotel. Please share your packages."
   )}`;
 
   return (
@@ -33,10 +33,10 @@ export default function HeroSection() {
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pointer-events-none">
-        {/* Developer Location Pill */}
+        {/* Brand Top Pill */}
         <div className="pointer-events-auto inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-midnight-900/90 border border-gold-500/40 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-6 shadow-gold-subtle backdrop-blur-md">
           <Sparkles className="w-3.5 h-3.5 text-gold-400 animate-pulse" />
-          <span>Samir Khan • Hotel Web Developer • Prayagraj, UP</span>
+          <span>StayCraft • Hotel Web Architecture & 3D Experiences • Prayagraj, UP</span>
         </div>
 
         {/* Headline */}
@@ -49,13 +49,13 @@ export default function HeroSection() {
 
         {/* Supporting Copy */}
         <p className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-ivory-300/85 font-light leading-relaxed">
-          I build high-converting hotel websites that turn online visitors into direct, commission-free guest bookings to drive real business growth for your property.
+          StayCraft builds immersive 3D hotel websites engineered to turn online visitors into direct guest enquiries and commission-free bookings.
         </p>
 
         {/* Coverage Subtitle */}
         <div className="mt-3 flex items-center space-x-2 text-xs text-ivory-400/90 font-medium">
           <MapPin className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-          <span>Based in Prayagraj • Serving Hotels Across Uttar Pradesh, Jaipur & Pan-India</span>
+          <span>Crafted in Prayagraj • Serving Hotels Across Uttar Pradesh, Jaipur & Pan-India</span>
         </div>
 
         {/* CTAs */}
@@ -96,7 +96,7 @@ export default function HeroSection() {
             <p className="text-[11px] text-ivory-400 leading-tight">Direct booking commissions paid to OTAs</p>
           </div>
           <div className="space-y-1">
-            <span className="font-serif text-xl sm:text-2xl font-bold text-gold-400">&lt; 1.0s</span>
+            <span className="font-serif text-xl sm:text-2xl font-bold text-gold-400">&lt; 0.8s</span>
             <p className="text-[11px] text-ivory-400 leading-tight">Sub-second mobile speed optimization</p>
           </div>
           <div className="space-y-1">
@@ -112,11 +112,11 @@ export default function HeroSection() {
         {/* Scroll Indicator */}
         <div className="pointer-events-auto mt-12 flex flex-col items-center">
           <a
-            href="#services"
+            href="#savings-calculator"
             className="text-ivory-400 hover:text-gold-400 transition-colors flex flex-col items-center space-y-1 text-[11px] uppercase tracking-widest font-light"
             aria-label="Scroll to services"
           >
-            <span>Discover Hotel Growth Services</span>
+            <span>Calculate Direct Booking Savings</span>
             <ChevronDown className="w-4 h-4 animate-bounce" />
           </a>
         </div>

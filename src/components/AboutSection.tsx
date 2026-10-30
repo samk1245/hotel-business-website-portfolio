@@ -24,22 +24,22 @@ export default function AboutSection() {
     {
       icon: <TrendingUp className="w-5 h-5 text-gold-400" />,
       title: "Built for Hotel Business Growth",
-      description: "My websites are not just digital flyers. Every section, room photo card, and button is engineered to convert visitors into direct, paying guests so you stop losing 18% to 22% on every booking to OTAs.",
+      description: "StayCraft websites are not just digital brochures. Every section, room showcase card, and interaction is engineered to convert visitors into direct, paying guests so you stop losing 18% to 22% on every booking to OTAs.",
     },
     {
       icon: <Smartphone className="w-5 h-5 text-gold-400" />,
       title: "Direct WhatsApp Front-Desk Bookings",
-      description: "Indian travelers prefer quick WhatsApp communication. I configure smart booking triggers where guests tap once to send pre-filled dates, room category, and guest counts straight to your reception.",
+      description: "Indian travelers convert fastest on WhatsApp. We configure smart booking triggers where guests tap once to send pre-filled dates, room category, and guest counts straight to your reception desk.",
     },
     {
       icon: <Eye className="w-5 h-5 text-gold-400" />,
       title: "Affordable & Transparent Pricing",
-      description: "High-end hotel design doesn't have to cost lakhs. My foundational hotel packages start affordably at ₹4,999 with clear itemized add-on rates and zero hidden agency overheads.",
+      description: "High-end hotel design doesn't have to cost lakhs. Our foundational hotel packages start affordably at ₹4,999 with clear itemized add-on rates and zero hidden agency overheads.",
     },
     {
       icon: <Clock className="w-5 h-5 text-gold-400" />,
       title: "Direct Access to Developer (Prayagraj)",
-      description: "You deal directly with me, Samir Khan. From photo curation and rate updates to Google Maps 3-Pack local ranking and domain setup, you get direct, responsive technical care.",
+      description: "You deal directly with lead developer Samir Khan in Prayagraj. From photo curation and rate updates to Google Maps 3-Pack local ranking and domain setup, you get direct, responsive technical care.",
     },
   ];
 
@@ -51,29 +51,29 @@ export default function AboutSection() {
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Meet Your Hotel Web Developer</span>
+              <span>About StayCraft & Leadership</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-ivory-50 tracking-tight leading-tight">
-              Hi, I’m Samir Khan. <br />
+              We Are StayCraft. <br />
               <span className="italic font-light text-gold-400">
-                Hotel Web Developer from Prayagraj.
+                Hotel Web Architecture from Prayagraj.
               </span>
             </h2>
 
             <p className="text-sm sm:text-base text-ivory-300/90 leading-relaxed">
-              I am a specialized developer based in <strong>Prayagraj, Uttar Pradesh</strong>. I build modern, visually stunning websites for hotels, resorts, guesthouses, homestays, and luxury boutique properties to give them real, sustainable <strong>business growth</strong>.
+              <strong>StayCraft</strong> is a specialized hotel web architecture studio based in <strong>Prayagraj, Uttar Pradesh</strong>, founded by developer <strong>Samir Khan</strong>. We build modern, visually stunning 3D websites for hotels, resorts, guesthouses, homestays, and luxury boutique properties to give them real, sustainable <strong>business growth</strong>.
             </p>
 
             <p className="text-sm text-ivory-300/80 leading-relaxed">
-              When online travel agencies like MakeMyTrip and Booking.com charge 18% to 22% commissions on every occupied room, an independent hotel owner loses significant profits. My mission is to build digital experiences that give travelers the confidence to book directly with your property.
+              When online travel agencies like MakeMyTrip and Booking.com take 18% to 22% commissions on every room booked, independent hotels lose significant profits. Our mission at StayCraft is to build digital experiences that give travelers the confidence to book directly with your property.
             </p>
 
             {/* Developer Contact Card */}
             <div className="p-4 rounded-xl bg-midnight-900 border border-gold-500/25 text-xs space-y-2">
               <div className="flex items-center space-x-2 text-ivory-200">
                 <MapPin className="w-4 h-4 text-gold-400 shrink-0" />
-                <span><strong>Location:</strong> {location}</span>
+                <span><strong>Studio HQ:</strong> {location}</span>
               </div>
               <div className="flex items-center space-x-2 text-emerald-400 font-semibold">
                 <MessageCircle className="w-4 h-4 shrink-0" />
@@ -96,14 +96,14 @@ export default function AboutSection() {
 
               <a
                 href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-                  "Hello Samir Khan! Let's talk about building a website for my hotel."
+                  "Hello StayCraft! Let's talk about building a website for my hotel."
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 px-4 py-3 rounded-lg border border-emerald-500/40 bg-emerald-950/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider hover:bg-emerald-950/40 transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Chat with Samir</span>
+                <span>Chat with Samir Khan</span>
               </a>
             </div>
           </div>
